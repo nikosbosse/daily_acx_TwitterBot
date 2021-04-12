@@ -1,0 +1,6 @@
+.env
+.vscode
+geckodriver.log
+__pycache__
+twitter-bot/
+twitter-bot.log
