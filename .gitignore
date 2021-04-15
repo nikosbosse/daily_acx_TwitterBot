@@ -3,4 +3,6 @@
 geckodriver.log
 __pycache__
 twitter-bot/
-twitter-bot.log
+*.log
+logo*
+cronlogs.txt
