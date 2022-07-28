@@ -1,4 +1,3 @@
-import logging
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from selenium import webdriver
@@ -6,17 +5,12 @@ from selenium.webdriver.firefox.options import Options
 import time
 import random
 
-logger = logging.getLogger()
-
 
 class randomarticle:
     ssc_url = "https://slatestarcodex.com/archives/"
     acx_url = "https://astralcodexten.substack.com/archive"
 
     def __init__(self):
-        logger.info("Initialising random article")
-        logger.info("Looking up the full list of Slate Star Codex articles")
-
         def get_ssc_links(self):
             # load html and parse using bs4
             req = Request(self.ssc_url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -107,12 +101,10 @@ class randomarticle:
             return links
 
         self.all_links = get_acx_links(self) + get_ssc_links(self)
-        logger.info("Randomly selecting a link to post")
         self.link = random.choice(self.all_links)
         print(self.link)
 
     def write_tweet(self):
-        logger.info("Creating a message with the random article link")
         message = [
             "Here is your daily article from Astral Codex Ten "
             "/ Slate Star Codex:",
